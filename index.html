@@ -94,16 +94,6 @@
       margin-top: 25px;
     }
 
-    .clickable-card {
-      cursor: pointer;
-      transition: transform 0.2s ease, background 0.2s ease;
-    }
-
-    .clickable-card:hover {
-      transform: translateY(-4px);
-      background: #263449;
-    }
-
     .project-item {
       padding: 15px;
       border-radius: 10px;
@@ -177,7 +167,6 @@
   </div>
 
   <main class="page">
-
     <div id="home-page">
       <h1>Martin Roth</h1>
 
@@ -189,45 +178,45 @@
         Ingénieur français en robotique, diplômé de Polytech Dijon en 2026. Passionné par la robotique et la conception de systèmes automatisés et intelligents.
       </p>
 
-      <section class="card clickable-card" data-page="fanuc-internship">
+      <section class="card">
         <div class="lang-en">
           <h2>Professional Experience</h2>
-          <h3>FANUC Internship - Alstom</h3>
-          <p>
-            Industrial robotics internship involving FANUC robot programming, automation systems,
-            and industrial process optimization.
-          </p>
+
+          <div class="project-item" data-page="fanuc-internship">
+            <h3>FANUC Internship - Alstom</h3>
+            <p>
+              Industrial robotics internship involving FANUC robot programming, automation systems,
+              and industrial process optimization.
+            </p>
+          </div>
+
+          <div class="project-item" data-page="airbus-internship">
+            <h3>Airbus Internship</h3>
+            <p>
+              Internship focused on embedded systems and robotics applications.
+            </p>
+          </div>
         </div>
 
         <div class="lang-fr">
           <h2>Expérience professionnelle</h2>
-          <h3>Stage FANUC - Alstom</h3>
-          <p>
-            Stage en robotique industrielle impliquant la programmation de robots FANUC,
-            les systèmes d’automatisation et l’optimisation de processus industriels.
-          </p>
+
+          <div class="project-item" data-page="fanuc-internship">
+            <h3>Stage FANUC - Alstom</h3>
+            <p>
+              Stage en robotique industrielle impliquant la programmation de robots FANUC,
+              les systèmes d’automatisation et l’optimisation de processus industriels.
+            </p>
+          </div>
+
+          <div class="project-item" data-page="airbus-internship">
+            <h3>Stage Airbus</h3>
+            <p>
+              Stage orienté systèmes embarqués et applications robotiques.
+            </p>
+          </div>
         </div>
       </section>
-
-      <section class="card clickable-card" data-page="airbus-internship">
-
-  <div class="lang-en">
-    <h2>Airbus Internship</h2>
-
-    <p>
-      Internship focused on embedded systems and robotics applications.
-    </p>
-  </div>
-
-  <div class="lang-fr">
-    <h2>Stage Airbus</h2>
-
-    <p>
-      Stage orienté systèmes embarqués et applications robotiques.
-    </p>
-  </div>
-
-</section>
 
       <section class="card">
         <div class="lang-en">
@@ -358,6 +347,7 @@
             robot programming tasks, technical challenges, and results here.
           </p>
         </div>
+
         <div class="lang-fr">
           <h2>Stage FANUC - Alstom</h2>
           <p>
@@ -365,148 +355,116 @@
             la programmation robot, les problèmes techniques rencontrés et les résultats obtenus.
           </p>
         </div>
+      </section>
 
-        <section class="card detail-content hidden" id="airbus-internship">
+      <section class="card detail-content hidden" id="airbus-internship">
+        <div class="lang-en">
+          <h2>Airbus Internship</h2>
+          <p>Here you can describe:</p>
+          <ul>
+            <li>missions</li>
+            <li>technologies used</li>
+            <li>robotics systems</li>
+            <li>results</li>
+          </ul>
+        </div>
 
-  <div class="lang-en">
-    <h2>Airbus Internship</h2>
-
-    <p>
-      Here you can describe:
-    </p>
-
-    <ul>
-      <li>missions</li>
-      <li>technologies used</li>
-      <li>robotics systems</li>
-      <li>results</li>
-    </ul>
-  </div>
-
-  <div class="lang-fr">
-    <h2>Stage Airbus</h2>
-
-    <p>
-      Ici tu peux détailler :
-    </p>
-
-    <ul>
-      <li>les missions</li>
-      <li>les technologies utilisées</li>
-      <li>les systèmes robotiques</li>
-      <li>les résultats obtenus</li>
-    </ul>
-  </div>
-
-</section>
+        <div class="lang-fr">
+          <h2>Stage Airbus</h2>
+          <p>Ici tu peux détailler :</p>
+          <ul>
+            <li>les missions</li>
+            <li>les technologies utilisées</li>
+            <li>les systèmes robotiques</li>
+            <li>les résultats obtenus</li>
+          </ul>
+        </div>
       </section>
 
       <section class="card detail-content hidden" id="scale-car">
         <div class="lang-en">
           <h2>1/10 Scale Car</h2>
-          <p>
-            Detailed page for the autonomous 1/10 scale car project.
-          </p>
+          <p>Detailed page for the autonomous 1/10 scale car project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Voiture échelle 1/10</h2>
-          <p>
-            Page détaillée du projet de voiture autonome à l’échelle 1/10.
-          </p>
+          <p>Page détaillée du projet de voiture autonome à l’échelle 1/10.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="drone">
         <div class="lang-en">
           <h2>Drone</h2>
-          <p>
-            Detailed page for the drone project.
-          </p>
+          <p>Detailed page for the drone project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Drone</h2>
-          <p>
-            Page détaillée du projet de drone.
-          </p>
+          <p>Page détaillée du projet de drone.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="fanuc-sorting">
         <div class="lang-en">
           <h2>FANUC Parts Sorting</h2>
-          <p>
-            Detailed page for the FANUC automated parts sorting project.
-          </p>
+          <p>Detailed page for the FANUC automated parts sorting project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Tri de pièces avec FANUC</h2>
-          <p>
-            Page détaillée du projet de tri automatique de pièces avec un robot FANUC.
-          </p>
+          <p>Page détaillée du projet de tri automatique de pièces avec un robot FANUC.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="arduino-snake">
         <div class="lang-en">
           <h2>Arduino Snake</h2>
-          <p>
-            Detailed page for the Arduino Snake project.
-          </p>
+          <p>Detailed page for the Arduino Snake project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Snake Arduino</h2>
-          <p>
-            Page détaillée du projet Snake sur Arduino.
-          </p>
+          <p>Page détaillée du projet Snake sur Arduino.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="neural-network">
         <div class="lang-en">
           <h2>Basic Neural Network Development</h2>
-          <p>
-            Detailed page for the basic neural network project.
-          </p>
+          <p>Detailed page for the basic neural network project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Développement d’un réseau de neurones simple</h2>
-          <p>
-            Page détaillée du projet de réseau de neurones simple.
-          </p>
+          <p>Page détaillée du projet de réseau de neurones simple.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="checkers-game">
         <div class="lang-en">
           <h2>Checkers Game</h2>
-          <p>
-            Detailed page for the checkers game project.
-          </p>
+          <p>Detailed page for the checkers game project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Jeu de dames</h2>
-          <p>
-            Page détaillée du projet de jeu de dames.
-          </p>
+          <p>Page détaillée du projet de jeu de dames.</p>
         </div>
       </section>
 
       <section class="card detail-content hidden" id="opencv-motion">
         <div class="lang-en">
           <h2>OpenCV Motion Detector</h2>
-          <p>
-            Detailed page for the OpenCV motion detector project.
-          </p>
+          <p>Detailed page for the OpenCV motion detector project.</p>
         </div>
+
         <div class="lang-fr">
           <h2>Détecteur de mouvement OpenCV</h2>
-          <p>
-            Page détaillée du projet de détection de mouvement avec OpenCV.
-          </p>
+          <p>Page détaillée du projet de détection de mouvement avec OpenCV.</p>
         </div>
       </section>
     </div>
-
   </main>
 
   <script>
