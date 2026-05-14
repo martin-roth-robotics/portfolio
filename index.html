@@ -1,20 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio - Martin Roth</title>
 
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --accent: #38bdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: white;
+      background: var(--bg);
+      color: var(--text);
       margin: 0;
-      padding: 40px;
+      padding: 40px 20px;
+    }
+
+    .page {
       max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .language-button {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .language-button:hover {
+      background: var(--accent);
+      color: var(--bg);
     }
 
     h1 {
@@ -23,118 +60,216 @@
     }
 
     h2 {
-      color: #38bdf8;
+      color: var(--accent);
       margin-bottom: 20px;
     }
 
     h3 {
       margin-top: 30px;
       margin-bottom: 5px;
-      color: #ffffff;
+      color: var(--text);
     }
 
     p {
       line-height: 1.6;
+      color: var(--muted);
     }
 
     .card {
-      background: #1e293b;
+      background: var(--card);
       padding: 25px;
       border-radius: 12px;
       margin-top: 25px;
     }
 
     a {
-      color: #38bdf8;
+      color: var(--accent);
       text-decoration: none;
     }
 
     a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 25px 15px;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .top-bar {
+        margin-bottom: 20px;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <main class="page">
+    <div class="top-bar">
+      <button class="language-button" id="languageButton">FR</button>
+    </div>
 
-  <h1>Martin Roth</h1>
+    <h1>Martin Roth</h1>
 
-  <p>
-    French Robotics engineer, graduated from Polytech Dijon in 2026. Passionate about robotics and the design of automated and intelligent systems.
-  </p>
-
-  <div class="card">
-    <h2>Professional Experience</h2>
-
-    <h3>FANUC Internship - Alstom</h3>
-    <p>
-      Industrial robotics internship involving FANUC robot programming, automation systems,
-      and industrial process optimization.
-    </p>
-  </div>
-
-  <div class="card">
-    <h2>Projects</h2>
-
-    <h3>Robotics</h3>
-
-    <h3>1/10 Scale Car</h3>
-    <p>
-      Robotics and embedded systems project based on a 1/10 autonomous vehicle platform.
+    <p data-i18n="intro">
+      French Robotics engineer, graduated from Polytech Dijon in 2026. Passionate about robotics and the design of automated and intelligent systems.
     </p>
 
-    <h3>Drone</h3>
-    <p>
-      Drone development project involving electronics, control systems, and programming.
-    </p>
+    <section class="card">
+      <h2 data-i18n="experienceTitle">Professional Experience</h2>
 
-    <h3>FANUC Parts Sorting</h3>
-    <p>
-      Industrial automation project using a FANUC robot for automated parts sorting.
-    </p>
+      <h3 data-i18n="fanucTitle">FANUC Internship - Alstom</h3>
+      <p data-i18n="fanucText">
+        Industrial robotics internship involving FANUC robot programming, automation systems, and industrial process optimization.
+      </p>
+    </section>
 
-    <h3>Snake arduino</h3>
-    <p>
-      Jeu snake sur un écran led, avec une arduino et un jstick.
-    </p>
+    <section class="card">
+      <h2 data-i18n="projectsTitle">Projects</h2>
 
-    <h3>Computer Science</h3>
+      <h3 data-i18n="roboticsTitle">Robotics</h3>
 
-    <h3>Basic Neural Network Development</h3>
-    <p>
-      Development of a simple neural network for machine learning experimentation.
-    </p>
+      <h3 data-i18n="carTitle">1/10 Scale Car</h3>
+      <p data-i18n="carText">
+        Robotics and embedded systems project based on a 1/10 autonomous vehicle platform.
+      </p>
 
-    <h3>Checkers Game</h3>
-    <p>
-      Programming project focused on building a playable checkers game with game logic and AI concepts.
-    </p>
+      <h3 data-i18n="droneTitle">Drone</h3>
+      <p data-i18n="droneText">
+        Drone development project involving electronics, control systems, and programming.
+      </p>
 
-    <h3>OpenCV Motion Detector</h3>
-    <p>
-      Computer vision project using OpenCV to detect movement in real time.
-    </p>
-  </div>
+      <h3 data-i18n="sortingTitle">FANUC Parts Sorting</h3>
+      <p data-i18n="sortingText">
+        Industrial automation project using a FANUC robot for automated parts sorting.
+      </p>
 
-  <div class="card">
-    <h2>Contact</h2>
+      <h3 data-i18n="snakeTitle">Arduino Snake</h3>
+      <p data-i18n="snakeText">
+        Snake game on an LED screen, using an Arduino and a joystick.
+      </p>
 
-    <p>Email : rothmartin123@gmail.com</p>
-    <p>Phone : +33 7 83 99 72 07</p>
+      <h3 data-i18n="csTitle">Computer Science</h3>
 
-    <p>
-      <a href="https://www.linkedin.com/in/martin-roth-a1126b334/" target="_blank" rel="noopener noreferrer">
-        LinkedIn Profile
-      </a>
-    </p>
+      <h3 data-i18n="nnTitle">Basic Neural Network Development</h3>
+      <p data-i18n="nnText">
+        Development of a simple neural network for machine learning experimentation.
+      </p>
 
-    <p>
-      <a href="https://github.com/martin-roth-robotics" target="_blank" rel="noopener noreferrer">
-        GitHub Profile
-      </a>
-    </p>
+      <h3 data-i18n="checkersTitle">Checkers Game</h3>
+      <p data-i18n="checkersText">
+        Programming project focused on building a playable checkers game with game logic and AI concepts.
+      </p>
 
-  </div>
+      <h3 data-i18n="opencvTitle">OpenCV Motion Detector</h3>
+      <p data-i18n="opencvText">
+        Computer vision project using OpenCV to detect movement in real time.
+      </p>
+    </section>
 
+    <section class="card">
+      <h2 data-i18n="contactTitle">Contact</h2>
+
+      <p>Email : rothmartin123@gmail.com</p>
+      <p data-i18n="phone">Phone : +33 7 83 99 72 07</p>
+
+      <p>
+        <a href="https://www.linkedin.com/in/martin-roth-a1126b334/" target="_blank" rel="noopener noreferrer">
+          LinkedIn Profile
+        </a>
+      </p>
+
+      <p>
+        <a href="https://github.com/martin-roth-robotics" target="_blank" rel="noopener noreferrer">
+          GitHub Profile
+        </a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const translations = {
+      en: {
+        button: "FR",
+        intro: "French Robotics engineer, graduated from Polytech Dijon in 2026. Passionate about robotics and the design of automated and intelligent systems.",
+        experienceTitle: "Professional Experience",
+        fanucTitle: "FANUC Internship - Alstom",
+        fanucText: "Industrial robotics internship involving FANUC robot programming, automation systems, and industrial process optimization.",
+        projectsTitle: "Projects",
+        roboticsTitle: "Robotics",
+        carTitle: "1/10 Scale Car",
+        carText: "Robotics and embedded systems project based on a 1/10 autonomous vehicle platform.",
+        droneTitle: "Drone",
+        droneText: "Drone development project involving electronics, control systems, and programming.",
+        sortingTitle: "FANUC Parts Sorting",
+        sortingText: "Industrial automation project using a FANUC robot for automated parts sorting.",
+        snakeTitle: "Arduino Snake",
+        snakeText: "Snake game on an LED screen, using an Arduino and a joystick.",
+        csTitle: "Computer Science",
+        nnTitle: "Basic Neural Network Development",
+        nnText: "Development of a simple neural network for machine learning experimentation.",
+        checkersTitle: "Checkers Game",
+        checkersText: "Programming project focused on building a playable checkers game with game logic and AI concepts.",
+        opencvTitle: "OpenCV Motion Detector",
+        opencvText: "Computer vision project using OpenCV to detect movement in real time.",
+        contactTitle: "Contact",
+        phone: "Phone : +33 7 83 99 72 07"
+      },
+
+      fr: {
+        button: "EN",
+        intro: "Ingénieur français en robotique, diplômé de Polytech Dijon en 2026. Passionné par la robotique et la conception de systèmes automatisés et intelligents.",
+        experienceTitle: "Expérience professionnelle",
+        fanucTitle: "Stage FANUC - Alstom",
+        fanucText: "Stage en robotique industrielle impliquant la programmation de robots FANUC, les systèmes d’automatisation et l’optimisation de processus industriels.",
+        projectsTitle: "Projets",
+        roboticsTitle: "Robotique",
+        carTitle: "Voiture échelle 1/10",
+        carText: "Projet de robotique et de systèmes embarqués basé sur une plateforme de véhicule autonome à l’échelle 1/10.",
+        droneTitle: "Drone",
+        droneText: "Projet de développement de drone impliquant l’électronique, les systèmes de contrôle et la programmation.",
+        sortingTitle: "Tri de pièces avec FANUC",
+        sortingText: "Projet d’automatisation industrielle utilisant un robot FANUC pour le tri automatique de pièces.",
+        snakeTitle: "Snake Arduino",
+        snakeText: "Jeu Snake sur un écran LED, avec une Arduino et un joystick.",
+        csTitle: "Informatique",
+        nnTitle: "Développement d’un réseau de neurones simple",
+        nnText: "Développement d’un réseau de neurones simple pour expérimenter des concepts de machine learning.",
+        checkersTitle: "Jeu de dames",
+        checkersText: "Projet de programmation visant à créer un jeu de dames jouable avec une logique de jeu et des concepts d’intelligence artificielle.",
+        opencvTitle: "Détecteur de mouvement OpenCV",
+        opencvText: "Projet de vision par ordinateur utilisant OpenCV pour détecter des mouvements en temps réel.",
+        contactTitle: "Contact",
+        phone: "Téléphone : +33 7 83 99 72 07"
+      }
+    };
+
+    let currentLanguage = "en";
+
+    const languageButton = document.getElementById("languageButton");
+    const translatableElements = document.querySelectorAll("[data-i18n]");
+
+    function updateLanguage(language) {
+      document.documentElement.lang = language;
+
+      translatableElements.forEach((element) => {
+        const translationKey = element.dataset.i18n;
+        element.textContent = translations[language][translationKey];
+      });
+
+      languageButton.textContent = translations[language].button;
+    }
+
+    languageButton.addEventListener("click", () => {
+      currentLanguage = currentLanguage === "en" ? "fr" : "en";
+      updateLanguage(currentLanguage);
+    });
+
+    updateLanguage(currentLanguage);
+  </script>
 </body>
 </html>
