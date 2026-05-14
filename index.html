@@ -120,17 +120,6 @@
         font-size: 36px;
       }
 
-      .language-switch span {
-        width: 80px;
-      }
-
-      .language-switch::before {
-        width: 80px;
-      }
-
-      body.fr .language-switch::before {
-        transform: translateX(80px);
-      }
     }
   </style>
 </head>
@@ -295,15 +284,32 @@
   </main>
 
   <script>
-    const languageSwitch = document.getElementById("languageSwitch");
+  const buttons = document.querySelectorAll(".lang-btn");
 
-    languageSwitch.addEventListener("click", () => {
-      const isFrench = document.body.classList.contains("fr");
+  function setLanguage(lang) {
+    document.body.classList.remove("en", "fr");
+    document.body.classList.add(lang);
 
-      document.body.classList.toggle("fr", !isFrench);
-      document.body.classList.toggle("en", isFrench);
-      document.documentElement.lang = isFrench ? "en" : "fr";
+    document.documentElement.lang = lang;
+
+    buttons.forEach((button) => {
+      button.classList.toggle("active", button.dataset.lang === lang);
     });
-  </script>
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const selectedLang = button.dataset.lang;
+
+      if (document.body.classList.contains(selectedLang)) {
+        return;
+      }
+
+      setLanguage(selectedLang);
+    });
+  });
+
+  setLanguage("en");
+</script>
 </body>
 </html>
