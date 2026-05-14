@@ -33,8 +33,10 @@
 
     .top-bar {
   position: fixed;
-  top: 25px;
-  right: 25px;
+
+  top: clamp(10px, 2vw, 25px);
+  right: clamp(10px, 2vw, 25px);
+
   z-index: 1000;
 }
 
@@ -47,13 +49,19 @@
 }
 
 .lang-btn {
-  width: 110px;
-  padding: 10px 0;
+
+  width: clamp(70px, 11vw, 110px);
+
+  padding: clamp(6px, 0.8vw, 10px) 0;
+
   border: none;
   background: transparent;
+
   color: var(--accent);
-  font-size: 14px;
+
+  font-size: clamp(11px, 0.9vw, 14px);
   font-weight: bold;
+
   cursor: pointer;
   transition: 0.2s ease;
 }
