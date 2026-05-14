@@ -32,48 +32,40 @@
     }
 
     .top-bar {
-  position: fixed;
-
-  top: clamp(10px, 2vw, 25px);
-  right: clamp(10px, 2vw, 25px);
-
-  z-index: 1000;
-}
+      position: fixed;
+      top: clamp(10px, 2vw, 25px);
+      right: clamp(10px, 2vw, 25px);
+      z-index: 1000;
+    }
 
     .language-switch {
-  display: flex;
-  background: #1e293b;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  overflow: hidden;
-}
+      display: flex;
+      background: #1e293b;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      overflow: hidden;
+    }
 
-.lang-btn {
+    .lang-btn {
+      width: clamp(70px, 11vw, 110px);
+      padding: clamp(6px, 0.8vw, 10px) 0;
+      border: none;
+      background: transparent;
+      color: var(--accent);
+      font-size: clamp(11px, 0.9vw, 14px);
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
 
-  width: clamp(70px, 11vw, 110px);
+    .lang-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+    }
 
-  padding: clamp(6px, 0.8vw, 10px) 0;
-
-  border: none;
-  background: transparent;
-
-  color: var(--accent);
-
-  font-size: clamp(11px, 0.9vw, 14px);
-  font-weight: bold;
-
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-.lang-btn:hover {
-  background: rgba(56, 189, 248, 0.15);
-}
-
-.lang-btn.active {
-  background: var(--accent);
-  color: var(--bg);
-}
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--bg);
+    }
 
     h1 {
       font-size: 48px;
@@ -102,6 +94,29 @@
       margin-top: 25px;
     }
 
+    .clickable-card {
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .clickable-card:hover {
+      transform: translateY(-4px);
+      background: #263449;
+    }
+
+    .project-item {
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-item:hover {
+      background: #263449;
+      transform: translateX(5px);
+    }
+
     a {
       color: var(--accent);
       text-decoration: none;
@@ -123,201 +138,377 @@
       display: block;
     }
 
+    .hidden {
+      display: none;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 25px;
+      padding: 10px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--accent);
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .back-btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
     @media (max-width: 600px) {
       h1 {
         font-size: 36px;
       }
-
     }
   </style>
 </head>
 
 <body class="en">
-  <main class="page">
-    <div class="top-bar">
-  <div class="language-switch">
-    <button class="lang-btn active" data-lang="en">
-      English
-    </button>
-
-    <button class="lang-btn" data-lang="fr">
-      Français
-    </button>
+  <div class="top-bar">
+    <div class="language-switch">
+      <button class="lang-btn active" data-lang="en">English</button>
+      <button class="lang-btn" data-lang="fr">Français</button>
+    </div>
   </div>
-</div>
 
-    <h1>Martin Roth</h1>
+  <main class="page">
 
-    <p class="lang-en">
-      French Robotics engineer, graduated from Polytech Dijon in 2026. Passionate about robotics and the design of automated and intelligent systems.
-    </p>
+    <div id="home-page">
+      <h1>Martin Roth</h1>
 
-    <p class="lang-fr">
-      Ingénieur français en robotique, diplômé de Polytech Dijon en 2026. Passionné par la robotique et la conception de systèmes automatisés et intelligents.
-    </p>
-
-    <section class="card">
-      <div class="lang-en">
-        <h2>Professional Experience</h2>
-        <h3>FANUC Internship - Alstom</h3>
-        <p>
-          Industrial robotics internship involving FANUC robot programming, automation systems,
-          and industrial process optimization.
-        </p>
-      </div>
-
-      <div class="lang-fr">
-        <h2>Expérience professionnelle</h2>
-        <h3>Stage FANUC - Alstom</h3>
-        <p>
-          Stage en robotique industrielle impliquant la programmation de robots FANUC,
-          les systèmes d’automatisation et l’optimisation de processus industriels.
-        </p>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="lang-en">
-        <h2>Projects</h2>
-
-        <h3>Robotics</h3>
-
-        <h3>1/10 Scale Car</h3>
-        <p>
-          Robotics and embedded systems project based on a 1/10 autonomous vehicle platform.
-        </p>
-
-        <h3>Drone</h3>
-        <p>
-          Drone development project involving electronics, control systems, and programming.
-        </p>
-
-        <h3>FANUC Parts Sorting</h3>
-        <p>
-          Industrial automation project using a FANUC robot for automated parts sorting.
-        </p>
-
-        <h3>Arduino Snake</h3>
-        <p>
-          Snake game on an LED screen, using an Arduino and a joystick.
-        </p>
-
-        <h3>Computer Science</h3>
-
-        <h3>Basic Neural Network Development</h3>
-        <p>
-          Development of a simple neural network for machine learning experimentation.
-        </p>
-
-        <h3>Checkers Game</h3>
-        <p>
-          Programming project focused on building a playable checkers game with game logic and AI concepts.
-        </p>
-
-        <h3>OpenCV Motion Detector</h3>
-        <p>
-          Computer vision project using OpenCV to detect movement in real time.
-        </p>
-      </div>
-
-      <div class="lang-fr">
-        <h2>Projets</h2>
-
-        <h3>Robotique</h3>
-
-        <h3>Voiture échelle 1/10</h3>
-        <p>
-          Projet de robotique et de systèmes embarqués basé sur une plateforme de véhicule autonome à l’échelle 1/10.
-        </p>
-
-        <h3>Drone</h3>
-        <p>
-          Projet de développement de drone impliquant l’électronique, les systèmes de contrôle et la programmation.
-        </p>
-
-        <h3>Tri de pièces avec FANUC</h3>
-        <p>
-          Projet d’automatisation industrielle utilisant un robot FANUC pour le tri automatique de pièces.
-        </p>
-
-        <h3>Snake Arduino</h3>
-        <p>
-          Jeu Snake sur un écran LED, avec une Arduino et un joystick.
-        </p>
-
-        <h3>Informatique</h3>
-
-        <h3>Développement d’un réseau de neurones simple</h3>
-        <p>
-          Développement d’un réseau de neurones simple pour expérimenter des concepts de machine learning.
-        </p>
-
-        <h3>Jeu de dames</h3>
-        <p>
-          Projet de programmation visant à créer un jeu de dames jouable avec une logique de jeu et des concepts d’intelligence artificielle.
-        </p>
-
-        <h3>Détecteur de mouvement OpenCV</h3>
-        <p>
-          Projet de vision par ordinateur utilisant OpenCV pour détecter des mouvements en temps réel.
-        </p>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="lang-en">
-        <h2>Contact</h2>
-        <p>Email: rothmartin123@gmail.com</p>
-        <p>Phone: +33 7 83 99 72 07</p>
-      </div>
-
-      <div class="lang-fr">
-        <h2>Contact</h2>
-        <p>Email : rothmartin123@gmail.com</p>
-        <p>Téléphone : +33 7 83 99 72 07</p>
-      </div>
-
-      <p>
-        <a href="https://www.linkedin.com/in/martin-roth-a1126b334/" target="_blank" rel="noopener noreferrer">
-          LinkedIn 
-        </a>
+      <p class="lang-en">
+        French Robotics engineer, graduated from Polytech Dijon in 2026. Passionate about robotics and the design of automated and intelligent systems.
       </p>
 
-      <p>
-        <a href="https://github.com/martin-roth-robotics" target="_blank" rel="noopener noreferrer">
-          GitHub 
-        </a>
+      <p class="lang-fr">
+        Ingénieur français en robotique, diplômé de Polytech Dijon en 2026. Passionné par la robotique et la conception de systèmes automatisés et intelligents.
       </p>
-    </section>
+
+      <section class="card clickable-card" data-page="fanuc-internship">
+        <div class="lang-en">
+          <h2>Professional Experience</h2>
+          <h3>FANUC Internship - Alstom</h3>
+          <p>
+            Industrial robotics internship involving FANUC robot programming, automation systems,
+            and industrial process optimization.
+          </p>
+        </div>
+
+        <div class="lang-fr">
+          <h2>Expérience professionnelle</h2>
+          <h3>Stage FANUC - Alstom</h3>
+          <p>
+            Stage en robotique industrielle impliquant la programmation de robots FANUC,
+            les systèmes d’automatisation et l’optimisation de processus industriels.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="lang-en">
+          <h2>Projects</h2>
+
+          <h3>Robotics</h3>
+
+          <div class="project-item" data-page="scale-car">
+            <h3>1/10 Scale Car</h3>
+            <p>Robotics and embedded systems project based on a 1/10 autonomous vehicle platform.</p>
+          </div>
+
+          <div class="project-item" data-page="drone">
+            <h3>Drone</h3>
+            <p>Drone development project involving electronics, control systems, and programming.</p>
+          </div>
+
+          <div class="project-item" data-page="fanuc-sorting">
+            <h3>FANUC Parts Sorting</h3>
+            <p>Industrial automation project using a FANUC robot for automated parts sorting.</p>
+          </div>
+
+          <div class="project-item" data-page="arduino-snake">
+            <h3>Arduino Snake</h3>
+            <p>Snake game on an LED screen, using an Arduino and a joystick.</p>
+          </div>
+
+          <h3>Computer Science</h3>
+
+          <div class="project-item" data-page="neural-network">
+            <h3>Basic Neural Network Development</h3>
+            <p>Development of a simple neural network for machine learning experimentation.</p>
+          </div>
+
+          <div class="project-item" data-page="checkers-game">
+            <h3>Checkers Game</h3>
+            <p>Programming project focused on building a playable checkers game with game logic and AI concepts.</p>
+          </div>
+
+          <div class="project-item" data-page="opencv-motion">
+            <h3>OpenCV Motion Detector</h3>
+            <p>Computer vision project using OpenCV to detect movement in real time.</p>
+          </div>
+        </div>
+
+        <div class="lang-fr">
+          <h2>Projets</h2>
+
+          <h3>Robotique</h3>
+
+          <div class="project-item" data-page="scale-car">
+            <h3>Voiture échelle 1/10</h3>
+            <p>Projet de robotique et de systèmes embarqués basé sur une plateforme de véhicule autonome à l’échelle 1/10.</p>
+          </div>
+
+          <div class="project-item" data-page="drone">
+            <h3>Drone</h3>
+            <p>Projet de développement de drone impliquant l’électronique, les systèmes de contrôle et la programmation.</p>
+          </div>
+
+          <div class="project-item" data-page="fanuc-sorting">
+            <h3>Tri de pièces avec FANUC</h3>
+            <p>Projet d’automatisation industrielle utilisant un robot FANUC pour le tri automatique de pièces.</p>
+          </div>
+
+          <div class="project-item" data-page="arduino-snake">
+            <h3>Snake Arduino</h3>
+            <p>Jeu Snake sur un écran LED, avec une Arduino et un joystick.</p>
+          </div>
+
+          <h3>Informatique</h3>
+
+          <div class="project-item" data-page="neural-network">
+            <h3>Développement d’un réseau de neurones simple</h3>
+            <p>Développement d’un réseau de neurones simple pour expérimenter des concepts de machine learning.</p>
+          </div>
+
+          <div class="project-item" data-page="checkers-game">
+            <h3>Jeu de dames</h3>
+            <p>Projet de programmation visant à créer un jeu de dames jouable avec une logique de jeu et des concepts d’intelligence artificielle.</p>
+          </div>
+
+          <div class="project-item" data-page="opencv-motion">
+            <h3>Détecteur de mouvement OpenCV</h3>
+            <p>Projet de vision par ordinateur utilisant OpenCV pour détecter des mouvements en temps réel.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="lang-en">
+          <h2>Contact</h2>
+          <p>Email: rothmartin123@gmail.com</p>
+          <p>Phone: +33 7 83 99 72 07</p>
+        </div>
+
+        <div class="lang-fr">
+          <h2>Contact</h2>
+          <p>Email : rothmartin123@gmail.com</p>
+          <p>Téléphone : +33 7 83 99 72 07</p>
+        </div>
+
+        <p>
+          <a href="https://www.linkedin.com/in/martin-roth-a1126b334/" target="_blank" rel="noopener noreferrer">
+            LinkedIn
+          </a>
+        </p>
+
+        <p>
+          <a href="https://github.com/martin-roth-robotics" target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </p>
+      </section>
+    </div>
+
+    <div id="detail-page" class="hidden">
+      <button class="back-btn" id="backHome">
+        <span class="lang-en">← Back home</span>
+        <span class="lang-fr">← Retour accueil</span>
+      </button>
+
+      <section class="card detail-content" id="fanuc-internship">
+        <div class="lang-en">
+          <h2>FANUC Internship - Alstom</h2>
+          <p>
+            Detailed page for the FANUC internship. You can describe your missions, tools used,
+            robot programming tasks, technical challenges, and results here.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Stage FANUC - Alstom</h2>
+          <p>
+            Page détaillée du stage FANUC. Tu peux décrire ici tes missions, les outils utilisés,
+            la programmation robot, les problèmes techniques rencontrés et les résultats obtenus.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="scale-car">
+        <div class="lang-en">
+          <h2>1/10 Scale Car</h2>
+          <p>
+            Detailed page for the autonomous 1/10 scale car project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Voiture échelle 1/10</h2>
+          <p>
+            Page détaillée du projet de voiture autonome à l’échelle 1/10.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="drone">
+        <div class="lang-en">
+          <h2>Drone</h2>
+          <p>
+            Detailed page for the drone project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Drone</h2>
+          <p>
+            Page détaillée du projet de drone.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="fanuc-sorting">
+        <div class="lang-en">
+          <h2>FANUC Parts Sorting</h2>
+          <p>
+            Detailed page for the FANUC automated parts sorting project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Tri de pièces avec FANUC</h2>
+          <p>
+            Page détaillée du projet de tri automatique de pièces avec un robot FANUC.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="arduino-snake">
+        <div class="lang-en">
+          <h2>Arduino Snake</h2>
+          <p>
+            Detailed page for the Arduino Snake project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Snake Arduino</h2>
+          <p>
+            Page détaillée du projet Snake sur Arduino.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="neural-network">
+        <div class="lang-en">
+          <h2>Basic Neural Network Development</h2>
+          <p>
+            Detailed page for the basic neural network project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Développement d’un réseau de neurones simple</h2>
+          <p>
+            Page détaillée du projet de réseau de neurones simple.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="checkers-game">
+        <div class="lang-en">
+          <h2>Checkers Game</h2>
+          <p>
+            Detailed page for the checkers game project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Jeu de dames</h2>
+          <p>
+            Page détaillée du projet de jeu de dames.
+          </p>
+        </div>
+      </section>
+
+      <section class="card detail-content hidden" id="opencv-motion">
+        <div class="lang-en">
+          <h2>OpenCV Motion Detector</h2>
+          <p>
+            Detailed page for the OpenCV motion detector project.
+          </p>
+        </div>
+        <div class="lang-fr">
+          <h2>Détecteur de mouvement OpenCV</h2>
+          <p>
+            Page détaillée du projet de détection de mouvement avec OpenCV.
+          </p>
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <script>
-  const buttons = document.querySelectorAll(".lang-btn");
+    const buttons = document.querySelectorAll(".lang-btn");
+    const homePage = document.getElementById("home-page");
+    const detailPage = document.getElementById("detail-page");
+    const detailContents = document.querySelectorAll(".detail-content");
+    const backHome = document.getElementById("backHome");
+    const clickableItems = document.querySelectorAll("[data-page]");
 
-  function setLanguage(lang) {
-    document.body.classList.remove("en", "fr");
-    document.body.classList.add(lang);
+    function setLanguage(lang) {
+      document.body.classList.remove("en", "fr");
+      document.body.classList.add(lang);
 
-    document.documentElement.lang = lang;
+      document.documentElement.lang = lang;
+
+      buttons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.lang === lang);
+      });
+    }
 
     buttons.forEach((button) => {
-      button.classList.toggle("active", button.dataset.lang === lang);
+      button.addEventListener("click", () => {
+        const selectedLang = button.dataset.lang;
+
+        if (document.body.classList.contains(selectedLang)) {
+          return;
+        }
+
+        setLanguage(selectedLang);
+      });
     });
-  }
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const selectedLang = button.dataset.lang;
+    clickableItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        const pageId = item.dataset.page;
 
-      if (document.body.classList.contains(selectedLang)) {
-        return;
-      }
+        homePage.classList.add("hidden");
+        detailPage.classList.remove("hidden");
 
-      setLanguage(selectedLang);
+        detailContents.forEach((content) => {
+          content.classList.add("hidden");
+        });
+
+        document.getElementById(pageId).classList.remove("hidden");
+        window.scrollTo(0, 0);
+      });
     });
-  });
 
-  setLanguage("en");
-</script>
+    backHome.addEventListener("click", () => {
+      detailPage.classList.add("hidden");
+      homePage.classList.remove("hidden");
+      window.scrollTo(0, 0);
+    });
+
+    setLanguage("en");
+  </script>
 </body>
 </html>
