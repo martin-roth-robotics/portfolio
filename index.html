@@ -39,33 +39,60 @@
     }
 
     .language-switch {
-      display: flex;
-      background: #1e293b;
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      overflow: hidden;
-    }
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  border-radius: 999px;
+  padding: 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(10px);
+}
 
-    .lang-btn {
-      width: clamp(70px, 11vw, 110px);
-      padding: clamp(6px, 0.8vw, 10px) 0;
-      border: none;
-      background: transparent;
-      color: var(--accent);
-      font-size: clamp(11px, 0.9vw, 14px);
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
+.switch-indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: clamp(70px, 11vw, 110px);
+  height: calc(100% - 8px);
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  border-radius: 999px;
+  box-shadow: 0 0 18px rgba(56, 189, 248, 0.45);
+  transition: transform 0.35s ease;
+}
 
-    .lang-btn:hover {
-      background: rgba(56, 189, 248, 0.15);
-    }
+body.en .switch-indicator {
+  transform: translateX(clamp(70px, 11vw, 110px));
+}
 
-    .lang-btn.active {
-      background: var(--accent);
-      color: var(--bg);
-    }
+.lang-btn {
+  position: relative;
+  z-index: 2;
+
+  width: clamp(70px, 11vw, 110px);
+  padding: clamp(6px, 0.8vw, 10px) 0;
+
+  border: none;
+  background: transparent;
+
+  color: var(--accent);
+
+  font-size: clamp(11px, 0.9vw, 14px);
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.lang-btn:hover {
+  transform: scale(1.03);
+}
+
+.lang-btn.active {
+  color: var(--bg);
+}
 
     h1 {
       font-size: 48px;
@@ -161,9 +188,11 @@
 <body class="fr">
   <div class="top-bar">
     <div class="language-switch">
-      <button class="lang-btn active" data-lang="en">English</button>
-      <button class="lang-btn" data-lang="fr">Français</button>
-    </div>
+  <div class="switch-indicator"></div>
+
+  <button class="lang-btn active" data-lang="fr">Français</button>
+  <button class="lang-btn" data-lang="en">English</button>
+</div>
   </div>
 
   <main class="page">
