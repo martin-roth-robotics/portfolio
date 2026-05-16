@@ -52,16 +52,20 @@
 }
 
     .project-image {
-  width: 100%;
-  max-width: 900px;
+
+  width: clamp(280px, 90vw, 1100px);
+
+  height: auto;
 
   display: block;
 
-  margin: 30px auto 0 auto;
+  margin: clamp(20px, 3vw, 40px) auto 0 auto;
 
-  border-radius: 14px;
+  border-radius: clamp(8px, 1vw, 16px);
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+
+  object-fit: cover;
 }
 
 .switch-indicator {
