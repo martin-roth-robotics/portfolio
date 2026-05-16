@@ -53,7 +53,9 @@
 
     .project-image {
 
-  width: clamp(280px, 90vw, 1100px);
+  width: min(90vw, 1100px);
+
+  max-height: 75vh;
 
   height: auto;
 
@@ -65,7 +67,7 @@
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .switch-indicator {
