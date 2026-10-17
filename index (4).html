@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script data-goatcounter="https://martinroth.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio - Martin Roth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #131a24;
+      --ink: #e9edf3;
+      --mute: #8d99ab;
+      --line: rgba(233, 237, 243, 0.13);
+      --accent: #a9c8ff;
+      --font: "Sora", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--ink); text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+    .page { max-width: 1120px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 56px) 80px; }
+
+    /* Langue */
+    body.fr .lang-en, body.en .lang-fr { display: none; }
+    .hidden { display: none !important; }
+
+    .top-bar { display: flex; justify-content: flex-end; padding: 28px 0 0; gap: 22px; }
+    .lang-btn {
+      background: none; border: 0; padding: 4px 0; cursor: pointer;
+      color: var(--mute); font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+      border-bottom: 1px solid transparent; transition: color .2s, border-color .2s;
+    }
+    .lang-btn:hover { color: var(--ink); }
+    .lang-btn.active { color: var(--ink); border-bottom-color: var(--accent); }
+
+    /* Hero */
+    .hero {
+      display: grid; grid-template-columns: 1.3fr 1fr; align-items: end;
+      gap: 40px; min-height: min(78vh, 720px); padding: 40px 0 72px;
+    }
+    h1 {
+      margin: 0 0 28px; font-weight: 200; line-height: 0.98;
+      font-size: clamp(56px, 9.5vw, 128px); letter-spacing: -0.035em;
+    }
+    .lead { margin: 0; max-width: 28ch; font-size: clamp(18px, 2vw, 24px); line-height: 1.45; color: var(--mute); }
+    .arm { width: 100%; max-width: 380px; justify-self: end; color: var(--accent); overflow: visible; }
+    .arm path, .arm circle { fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linejoin: round; stroke-linecap: round; }
+    .arm circle { fill: var(--bg); }
+    .arm .ground { stroke: var(--line); stroke-width: 1; }
+
+    /* Sections */
+    .block {
+      display: grid; grid-template-columns: minmax(260px, 340px) 1fr; gap: 32px;
+      padding: 44px 0; border-top: 1px solid var(--line);
+    }
+    h2 { margin: 0; font-size: clamp(28px, 3.4vw, 44px); font-weight: 200; line-height: 1.15; letter-spacing: -0.02em; color: var(--ink); }
+
+    .row {
+      display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: baseline;
+      width: 100%; text-align: left; background: none; border: 0; cursor: pointer;
+      padding: 22px 0; position: relative; border-bottom: 1px solid var(--line);
+    }
+    .row:first-of-type { padding-top: 0; }
+    .row b { font-weight: 300; font-size: clamp(20px, 2.4vw, 28px); letter-spacing: -0.01em; transition: color .25s; }
+    .row .meta { font-size: 14px; color: var(--mute); text-align: right; }
+    .row::after {
+      content: ""; position: absolute; left: 0; bottom: -1px; height: 1px; width: 0;
+      background: var(--accent); transition: width .4s ease;
+    }
+    .row:hover::after, .row:focus-visible::after { width: 100%; }
+    .row:hover b, .row:focus-visible b { color: var(--accent); }
+    .group { margin: 0 0 8px; font-size: 13px; color: var(--mute); }
+
+    /* Contact */
+    .contact { display: grid; gap: 4px; font-size: clamp(18px, 2.2vw, 26px); font-weight: 200; }
+    .contact a { width: fit-content; border-bottom: 1px solid transparent; transition: border-color .2s, color .2s; }
+    .contact a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+    /* Pages de détail */
+    .back { background: none; border: 0; cursor: pointer; padding: 28px 0; color: var(--mute); font-size: 14px; transition: color .2s; }
+    .back:hover { color: var(--accent); }
+    .detail { padding-top: 24px; }
+    .detail h2 { font-size: clamp(30px, 4.6vw, 56px); font-weight: 200; color: var(--ink); line-height: 1.1; letter-spacing: -0.025em; max-width: 20ch; }
+    .detail p { max-width: 62ch; margin: 28px 0 36px; font-size: 18px; color: var(--mute); }
+    .detail ul { list-style: none; margin: 0 0 56px; padding: 0; max-width: 72ch; }
+    .detail li { padding: 18px 0; border-top: 1px solid var(--line); }
+    .detail li:last-child { border-bottom: 1px solid var(--line); }
+
+    .project-image {
+      display: block; width: 100%; max-width: 900px; height: auto; margin: 0 0 40px;
+      border-radius: 4px; border: 1px solid var(--line);
+    }
+    .process { display: flex; align-items: center; gap: clamp(12px, 3vw, 36px); max-width: 900px; }
+    .process img { flex: 1; min-width: 0; width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line); }
+    .process span { font-size: 36px; font-weight: 200; color: var(--accent); }
+
+    @media (max-width: 760px) {
+      .hero { grid-template-columns: 1fr; min-height: 0; padding-bottom: 48px; }
+      .arm { max-width: 240px; justify-self: start; order: -1; }
+      .block { grid-template-columns: 1fr; gap: 20px; padding: 36px 0; }
+      .row { grid-template-columns: 1fr; gap: 4px; }
+      .row .meta { text-align: left; }
+    }
+  </style>
+</head>
+
+<body class="fr">
+  <div class="page">
+    <div class="top-bar">
+      <button class="lang-btn active" data-lang="fr">Français</button>
+      <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <main>
+      <div id="home-page">
+        <header class="hero">
+          <div>
+            <h1>Martin Roth</h1>
+            <p class="lead lang-en">Robotics engineer, graduated from Polytech Dijon in 2026.</p>
+            <p class="lead lang-fr">Ingénieur Robotique, diplômé de Polytech Dijon en 2026.</p>
+          </div>
+
+          <svg class="arm" viewBox="0 0 360 400" aria-hidden="true">
+            <path class="ground" d="M0 360H360" />
+            <g transform="translate(180 360)">
+              <path d="M-52 0V-12H52V0M-26 -12V-22H26V-12" />
+              <g transform="translate(0 -22)">
+                <animateTransform attributeName="transform" additive="sum" type="rotate" values="-14 0 0;10 0 0;-14 0 0" keyTimes="0;.5;1" dur="13s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" />
+                <path d="M-9 0L-5 -128H5L9 0Z" /><circle r="8" />
+                <g transform="translate(0 -128)">
+                  <animateTransform attributeName="transform" additive="sum" type="rotate" values="32 0 0;-22 0 0;32 0 0" keyTimes="0;.5;1" dur="9s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" />
+                  <path d="M-7 0L-4 -104H4L7 0Z" /><circle r="7" />
+                  <g transform="translate(0 -104)">
+                    <animateTransform attributeName="transform" additive="sum" type="rotate" values="-38 0 0;22 0 0;-38 0 0" keyTimes="0;.5;1" dur="7s" repeatCount="indefinite" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1" />
+                    <path d="M-5 0L-3 -56H3L5 0Z" /><circle r="6" />
+                    <path d="M-11 -56H11M-11 -56V-76M11 -56V-76" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </header>
+
+        <section class="block">
+          <h2><span class="lang-en">Professional experience</span><span class="lang-fr">Expérience professionnelle</span></h2>
+          <div>
+            <button class="row" data-page="fanuc-internship">
+              <b>Alstom</b>
+              <span class="meta"><span class="lang-en">Robotics internship, Le Creusot, France</span><span class="lang-fr">Stage roboticien, Le Creusot, France</span></span>
+            </button>
+            <button class="row" data-page="mihb-internship">
+              <b>MIHB</b>
+              <span class="meta"><span class="lang-en">Robotics internship, Groissiat, France</span><span class="lang-fr">Stage roboticien, Groissiat, France</span></span>
+            </button>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2><span class="lang-en">Projects</span><span class="lang-fr">Projets</span></h2>
+          <div>
+            <p class="group"><span class="lang-en">Robotics</span><span class="lang-fr">Robotique</span></p>
+            <button class="row" data-page="scale-car">
+              <b><span class="lang-en">1/10 Scale Autonomous Car</span><span class="lang-fr">Voiture autonome échelle 1/10</span></b>
+              <span class="meta">AWAKE Challenge 2025</span>
+            </button>
+            <button class="row" data-page="drone">
+              <b><span class="lang-en">Manufacturing and programming of a drone</span><span class="lang-fr">Fabrication et programmation d'un drone</span></b>
+              <span class="meta"><span class="lang-en">Quadcopter</span><span class="lang-fr">Quadricoptère</span></span>
+            </button>
+            <button class="row" data-page="fanuc-sorting">
+              <b><span class="lang-en">Parts Sorting with a FANUC Robot</span><span class="lang-fr">Tri de pièces avec un robot FANUC</span></b>
+              <span class="meta">Python, MODBUS</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="block">
+          <h2>Contact</h2>
+          <div class="contact">
+            <a href="mailto:rothmartin123@gmail.com">rothmartin123@gmail.com</a>
+            <a href="tel:+33783997207">+33 7 83 99 72 07</a>
+            <a href="https://www.linkedin.com/in/martin-roth-a1126b334/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </section>
+      </div>
+
+      <div id="detail-page" class="hidden">
+        <button class="back" id="backHome">
+          <span class="lang-en">Back home</span>
+          <span class="lang-fr">Retour à l'accueil</span>
+        </button>
+
+        <section class="detail detail-content" id="fanuc-internship">
+          <div class="lang-en">
+            <h2>Robotics Internship - Alstom - Le Creusot, France</h2>
+            <p>Worked on the improvement and optimisation of a robotic railway shock absorber assembly machine using FANUC industrial robots.</p>
+            <ul>
+              <li>Optimised the robotic gluing process by developing a multi-deposit glue system adapted to part diameter, improving assembly quality and reducing defects caused by glue overfilling or underfilling</li>
+              <li>Optimised robotic assembly and screwing operations through trajectory modifications and virtual compliance programming to compensate for component positioning inaccuracies</li>
+              <li>Reduced machine cycle time by 15%</li>
+            </ul>
+          </div>
+          <div class="lang-fr">
+            <h2>Stage Roboticien - Alstom - Le Creusot, France</h2>
+            <p>Participation à l’amélioration et à l’optimisation d’une machine robotisée d’assemblage d’amortisseurs ferroviaires utilisant des robots industriels FANUC.</p>
+            <ul>
+              <li>Optimisation du processus robotisé d’encollage : développement d’un système de déposes multiples de colle adaptées au diamètre des pièces afin d’améliorer la qualité d’assemblage et de réduire les défauts liés au surdosage ou au sous-dosage</li>
+              <li>Optimisation des opérations robotisées d’assemblage et de vissage grâce à des modifications de trajectoires et à la programmation de compliance virtuelle pour compenser les imprécisions de positionnement des composants mécaniques</li>
+              <li>Réduction du temps de cycle de 15%</li>
+            </ul>
+          </div>
+          <img src="images/fanuc.jpg" class="project-image" alt="Robot FANUC chez Alstom" />
+        </section>
+
+        <section class="detail detail-content hidden" id="mihb-internship">
+          <div class="lang-en">
+            <h2>Robotics Internship - MIHB - Groissiat, France</h2>
+            <p>Optimisation of an automated plastic manufacturing robotic cell using STÄUBLI industrial robots.</p>
+            <ul>
+              <li>Reduced production cycle time from approximately 30s to 21s through robot trajectory optimisation, machine delay reduction and improvement of the seal feeding flow inside the automated system</li>
+              <li>Reduced false rejection rates generated by quality inspection systems: improved reliability of the vision camera checking assembled part appearance as well as the height measurement sensor</li>
+              <li>Troubleshot and optimised various automated systems within the robotic cell, including cameras, sensors, seal feeding mechanisms and STÄUBLI robot programs</li>
+              <li>Implemented mechanical and practical improvements to simplify machine operation and improve usability for production operators</li>
+            </ul>
+          </div>
+          <div class="lang-fr">
+            <h2>Stage Roboticien - MIHB - Groissiat, France</h2>
+            <p>Optimisation d’une cellule robotisée automatisée de fabrication plastique utilisant des robots industriels STÄUBLI.</p>
+            <ul>
+              <li>Réduction du temps de cycle de production d’environ 30s à 21s grâce à l’optimisation des trajectoires robots, à la réduction des délais machine et à l’amélioration du flux d’alimentation des joints dans le système automatisé</li>
+              <li>Réduction des faux rebuts générés par les systèmes de contrôle qualité : amélioration de la fiabilité de la caméra de vision vérifiant l’aspect des pièces assemblées ainsi que du capteur de mesure de hauteur</li>
+              <li>Optimisation et dépannage de différents systèmes automatisés de la cellule : caméras, capteurs, alimentation de joints et programmes robots STÄUBLI</li>
+              <li>Réalisation de modifications mécaniques et d’améliorations pratiques afin de rendre la machine plus simple et plus ergonomique pour les opérateurs</li>
+            </ul>
+          </div>
+          <img src="images/mihb.jpg" class="project-image" alt="Robot Staubli chez MIHB" />
+        </section>
+
+        <section class="detail detail-content hidden" id="scale-car">
+          <div class="lang-en">
+            <h2>1/10 Scale Autonomous Car</h2>
+            <p>Full design and development of an autonomous miniature vehicle for the AWAKE Challenge 2025, a French engineering school competition focused on 1/10 scale autonomous cars.</p>
+            <ul>
+              <li>Complete vehicle development including 3D design, 3D printing, manufacturing, electronic assembly and system integration</li>
+              <li>Development of autonomous driving algorithms using a 3D camera as the main sensor</li>
+              <li>Real-time steering angle computation transmitted to the steering servo motor to ensure autonomous track following</li>
+              <li>Final ranking: 2nd place out of 12 French engineering school teams</li>
+            </ul>
+          </div>
+          <div class="lang-fr">
+            <h2>Voiture autonome échelle 1/10</h2>
+            <p>Conception et développement complet d’un véhicule autonome miniature dans le cadre de l’AWAKE Challenge 2025, une compétition inter-écoles d’ingénieurs françaises dédiée aux voitures autonomes à l’échelle 1/10.</p>
+            <ul>
+              <li>Conception complète du véhicule : modélisation 3D, impression 3D, fabrication, assemblage électronique et intégration des différents systèmes</li>
+              <li>Développement des algorithmes de conduite autonome à partir d’une caméra 3D utilisée comme capteur principal</li>
+              <li>Calcul en temps réel de l’angle de braquage transmis au servomoteur de direction afin d’assurer le suivi autonome du circuit</li>
+              <li>Classement final : 2ème place sur 12 équipes d’écoles d’ingénieurs françaises</li>
+            </ul>
+          </div>
+          <img src="images/awake.jpg" class="project-image" alt="Voiture 1/10" />
+        </section>
+
+        <section class="detail detail-content hidden" id="drone">
+          <div class="lang-en">
+            <h2>Manufacturing and programming of a drone</h2>
+            <p>Complete design and development of a custom quadcopter drone inspired by Michael Rechtin's design.</p>
+            <ul>
+              <li>Manufacturing of the frame using 3D printing and assembly of the structure</li>
+              <li>Integration of electronic components and propulsion system</li>
+              <li>Development and configuration of the embedded software for drone control</li>
+            </ul>
+          </div>
+          <div class="lang-fr">
+            <h2>Fabrication et programmation d'un drone</h2>
+            <p>Conception et réalisation complète d’un drone quadricoptère personnalisé inspiré du design de Michael Rechtin.</p>
+            <ul>
+              <li>Fabrication du châssis par impression 3D et assemblage de la structure</li>
+              <li>Intégration des composants électroniques et du système de propulsion</li>
+              <li>Développement et configuration du logiciel embarqué assurant le contrôle du drone</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="detail detail-content hidden" id="fanuc-sorting">
+          <div class="lang-en">
+            <h2>Parts Sorting with a FANUC robot</h2>
+            <p>Development of an automated part sorting system using a FANUC industrial robot and a machine vision system.</p>
+            <ul>
+              <li>Development of a Python application ensuring communication between an industrial camera and the robot</li>
+              <li>Real-time detection and identification of square and circular parts from images acquired within the robotic cell</li>
+              <li>Transmission of part coordinates to the robot via the MODBUS protocol</li>
+              <li>Programming of the FANUC robot to automatically sort parts according to their shape</li>
+            </ul>
+          </div>
+          <div class="lang-fr">
+            <h2>Tri de pièces avec un robot FANUC</h2>
+            <p>Développement d’un système automatisé de tri de pièces à l’aide d’un robot industriel FANUC et d’un système de vision.</p>
+            <ul>
+              <li>Développement d’une application Python assurant la communication entre une caméra industrielle et le robot</li>
+              <li>Détection et identification en temps réel de pièces carrées et circulaires à partir d’images acquises dans la cellule robotisée</li>
+              <li>Transmission des coordonnées des pièces au robot via le protocole MODBUS</li>
+              <li>Programmation du robot FANUC pour réaliser automatiquement le tri des pièces selon leur forme</li>
+            </ul>
+          </div>
+          <img src="images/cellule_fanuc.png" class="project-image" alt="Tri de pièces Fanuc" />
+          <div class="process">
+            <img src="images/cropped.png" alt="Image acquise par la caméra" />
+            <span>→</span>
+            <img src="images/cercles_detectes.png" alt="Cercles détectés" />
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".lang-btn");
+    const homePage = document.getElementById("home-page");
+    const detailPage = document.getElementById("detail-page");
+    const detailContents = document.querySelectorAll(".detail-content");
+    const backHome = document.getElementById("backHome");
+    const clickableItems = document.querySelectorAll("[data-page]");
+
+    function setLanguage(lang) {
+      document.body.classList.remove("en", "fr");
+      document.body.classList.add(lang);
+      document.documentElement.lang = lang;
+      buttons.forEach((b) => b.classList.toggle("active", b.dataset.lang === lang));
+    }
+
+    buttons.forEach((b) => b.addEventListener("click", () => setLanguage(b.dataset.lang)));
+
+    clickableItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        homePage.classList.add("hidden");
+        detailPage.classList.remove("hidden");
+        detailContents.forEach((c) => c.classList.add("hidden"));
+        document.getElementById(item.dataset.page).classList.remove("hidden");
+        window.scrollTo(0, 0);
+      });
+    });
+
+    backHome.addEventListener("click", () => {
+      detailPage.classList.add("hidden");
+      homePage.classList.remove("hidden");
+      window.scrollTo(0, 0);
+    });
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll("animateTransform").forEach((a) => a.remove());
+    }
+
+    setLanguage("fr");
+  </script>
+</body>
+</html>
